@@ -17,8 +17,6 @@ namespace Animals.Tests
         public void MammalTest()
         {
             Assert.IsTrue(j.GivesLiveBirth);
-           
-            
         }
 
         [TestMethod()]
@@ -35,7 +33,6 @@ namespace Animals.Tests
             j.GiveBirth(2);
             Assert.IsTrue(j.HasOffspring);
             Assert.AreEqual(2, j.NumChildren);
-          
         }
     }
 }
