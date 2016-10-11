@@ -11,31 +11,28 @@ namespace Animals.Tests
     [TestClass()]
     public class MammalTests
     {
+        Mammal j = new Mammal();
+
         [TestMethod()]
         public void MammalTest()
         {
-            Mammal j = new Mammal();
             Assert.IsTrue(j.GivesLiveBirth);
-            j.NumChildren = 2;
+           
             
         }
 
         [TestMethod()]
         public void GiveBirthTest()
         {
-            Mammal j = new Mammal();
-            j.NumChildren = 2;
-            j.HasOffspring = true;
+            j.GiveBirth();
             Assert.IsTrue(j.HasOffspring);
-            Assert.AreEqual(2, j.NumChildren);
+            Assert.AreEqual(1, j.NumChildren);
         }
 
         [TestMethod()]
         public void GiveBirthTest1()
         {
-            Mammal j = new Mammal();
-            j.NumChildren = 2;
-            j.HasOffspring = true;
+            j.GiveBirth(2);
             Assert.IsTrue(j.HasOffspring);
             Assert.AreEqual(2, j.NumChildren);
           

@@ -11,10 +11,11 @@ namespace Animals.Tests
     [TestClass()]
     public class HumanTests
     {
+        Human jas = new Human();
+
         [TestMethod()]
         public void HumanTest()
         {
-            Human jas = new Human();
             Assert.AreEqual(2, jas.NumLegs);
             jas.Species = "Homosapien";
             Assert.AreEqual("Homosapien", jas.Species);
@@ -26,56 +27,40 @@ namespace Animals.Tests
         [TestMethod()]
         public void GetMarriedTest()
         {
-            Human jas = new Human();
-            Assert.AreEqual(null, jas.FirstName);
-            Assert.AreEqual(null, jas.LastName);
+            jas.MaritalStatus = 'S';
+            jas.GetMarried();
             jas.MaritalStatus = 'M';
-            jas.LastName = "White";
-            jas.FirstName = "Jas";
-            Assert.AreEqual("White", jas.LastName);
-            Assert.AreEqual("Jas", jas.FirstName);
         }
 
         [TestMethod()]
         public void GetMarriedTest1()
         {
-            Human jas = new Human();
+            jas.MaritalStatus = 'S';
             Assert.AreEqual(null, jas.FirstName);
             Assert.AreEqual(null, jas.LastName);
-            jas.MaritalStatus = 'S';
-            jas.FirstName = "Jasmine";
-            jas.LastName = "Michele";
-            jas.MaritalStatus = 'M';
-            Assert.AreEqual("Michele", jas.LastName);
+        
+            jas.GetMarried("Jasmine", "White");
+            Assert.AreEqual('M', jas.MaritalStatus);
+            Assert.AreEqual("White", jas.LastName);
             Assert.AreEqual("Jasmine", jas.FirstName);
         }
 
         [TestMethod()]
         public void GetSingleTest()
         {
-
-            Human jas = new Human();
-            Assert.AreEqual(null, jas.FirstName);
-            Assert.AreEqual(null, jas.LastName);
-            jas.MaritalStatus = 'S';
-            jas.LastName = "Michele";
-            jas.FirstName = "Jas";
-            Assert.AreEqual("Michele", jas.LastName);
-            Assert.AreEqual("Jas", jas.FirstName);
+            jas.MaritalStatus = 'M';
+            jas.GetSingle();
+            Assert.AreEqual('S', jas.MaritalStatus);
         }
 
         [TestMethod()]
         public void GetSingleTest1()
         {
-            Human jas = new Human();
+            jas.MaritalStatus = 'M';
             Assert.AreEqual(null, jas.FirstName);
             Assert.AreEqual(null, jas.LastName);
-            jas.MaritalStatus = 'M';
-            jas.FirstName = "Jasmine";
-            jas.LastName = "White";
-            jas.MaritalStatus = 'S';
-            Assert.AreEqual("White", jas.LastName);
-            Assert.AreEqual("Jasmine", jas.FirstName);
+            jas.GetSingle("Jas", "Michele");
+            Assert.AreEqual('S', jas.MaritalStatus);
         }
     }
 }
